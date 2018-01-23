@@ -173,18 +173,18 @@ corr_table.to_csv('./corr_head_tail_rm.csv',index=True,sep=',');
 #stl分解
 purchase_tsr = sm.tsa.seasonal_decompose(purchase_redeem_total.total_purchase_amt);
 
-purchase_trend = decomposition.trend
-purchase_seasonal = decomposition.seasonal
-purchase_residual = decomposition.resid
+purchase_trend = purchase_tsr.trend
+purchase_seasonal = purchase_tsr.seasonal
+purchase_residual = purchase_tsr.resid
 
 purchase_tsr.plot()
 plt.title('total_purchase_amt stl');
 plt.draw()
 
 redeem_tsr = sm.tsa.seasonal_decompose(purchase_redeem_total.total_redeem_amt);
-redeem_trend = decomposition.trend
-redeem_seasonal = decomposition.seasonal
-redeem_residual = decomposition.resid
+redeem_trend = redeem_tsr.trend
+redeem_seasonal = redeem_tsr.seasonal
+redeem_residual = redeem_tsr.resid
 
 redeem_tsr.plot()
 plt.title('total_redeem_amt stl');
